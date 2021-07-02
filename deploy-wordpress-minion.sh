@@ -7,7 +7,7 @@ echo "Please enter the administrator account of the new minion"
 read -r account_name
 
 # Run remote command on minion
-ssh -t $account_name@$host_name "sudo apt install curl; curl -L https://bootstrap.saltstack.com -o install_salt.sh ~/; sudo sh ~/install_salt.sh; sudo sed -i \"s/#master: salt/master: SWMaster/\" /etc/salt/minion; sudo systemctl restart salt-minion"
+ssh -t $account_name@$host_name "sudo apt install curl; curl -L https://bootstrap.saltstack.com -o install_salt.sh ~/; sudo sh ~/install_salt.sh; sudo sed -i \"s/#master: salt/master: 10.1.10.196/\" /etc/salt/minion; sudo systemctl restart salt-minion"
 
 # Sleep for 5 seconds to give to minion time to announce itself
 sleep 5
